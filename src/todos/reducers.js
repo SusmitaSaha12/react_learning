@@ -34,9 +34,9 @@ export const todos = (state = [], action) => {
       return state.filter((todo) => todo.id !== removedTodo.id);
     }
     case COMPLEATE_TODO: {
-      const { text } = payload;
+      const { todo: compleatedTodo } = payload;
       return state.map((todo) =>
-        todo.text === text ? { ...todo, isCompleated: true } : todo
+        todo.id === compleatedTodo.id ? { ...todo, isCompleted: true } : todo
       );
     }
     case LOAD_TODOS_SUCCESS: {
