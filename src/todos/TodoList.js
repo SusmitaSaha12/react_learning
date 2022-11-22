@@ -3,10 +3,11 @@ import NewTodoForm from './NewTodoForm';
 import TodoListItem from './TodoListItem';
 import { connect } from 'react-redux';
 import { removeTodo, compleateTodo } from './action';
+import { displayAlert } from './thunks';
 import './TodoList.css';
 
 
-const TodoList = ({ todos = [], onRemoveClick, onCompleateClick}) => {
+const TodoList = ({ todos = [], onRemoveClick, onCompleateClick }) => {
   return (
     <div className="list-wrapper">
       <NewTodoForm />
@@ -28,6 +29,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   onRemoveClick: text => dispatch(removeTodo(text)),
   onCompleateClick: text => dispatch(compleateTodo(text)),
+  // onDisplayAlertClicked: text => dispatch(displayAlert(text)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
